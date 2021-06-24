@@ -33,7 +33,7 @@
     
     // Do any additional setup after loading the view.
     
-    [self.activityIndicator startAnimating];
+    [self.activityIndicator startAnimating]; // load symbol animate
     
     [self fetchMovies]; // function of the api
     
@@ -72,7 +72,7 @@
                // TODO: Reload your table view data
            }
         [self.refreshControl endRefreshing]; //strop refresh symbol
-        [self.activityIndicator stopAnimating];
+        [self.activityIndicator stopAnimating]; //load symbol stop
        }];
     [task resume];
 }

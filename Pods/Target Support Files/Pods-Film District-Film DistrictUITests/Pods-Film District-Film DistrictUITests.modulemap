@@ -1,0 +1,6 @@
+framework module Pods_Film_District_Film_DistrictUITests {
+  umbrella header "Pods-Film District-Film DistrictUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
