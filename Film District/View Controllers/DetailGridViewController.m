@@ -32,18 +32,21 @@
     NSURL *posterURL = [NSURL URLWithString:fullPosterURLString];
     [self.posterView setImageWithURL:posterURL];
     
+    [self.backdropView setImageWithURL:posterURL];
     
-    NSString *backdropURLString = self.movie[@"backdrop_path"];
-    NSString *fullBackdropURLString = [baseURLString stringByAppendingString: backdropURLString];
     
-    NSURL *backdropURL = [NSURL URLWithString:fullBackdropURLString];
-    [self.backdropView setImageWithURL:backdropURL];
+//    NSString *backdropURLString = self.movie[@"backdrop_path"];
+//    NSString *fullBackdropURLString = [baseURLString stringByAppendingString: backdropURLString];
+//
+//    NSURL *backdropURL = [NSURL URLWithString:fullBackdropURLString];
+//    [self.posterView setImageWithURL:backdropURL];
+    
     
     
     self.titleLabel.text = self.movie[@"title"];
     self.synopsisLabel.text = self.movie[@"overview"];
     
-    [self.titleLabel sizeToFit];
+//    [self.titleLabel sizeToFit];
     [self.synopsisLabel sizeToFit];
     
     

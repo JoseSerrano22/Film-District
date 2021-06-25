@@ -38,6 +38,7 @@
     [self fetchMovies]; // function of the api
     
     self.refreshControl = [[UIRefreshControl alloc] init]; //init
+    self.refreshControl.tintColor = UIColor.whiteColor;
     [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged]; //action
     [self.tableView insertSubview:self.refreshControl atIndex:0];
 }
@@ -54,25 +55,21 @@
            if (error != nil) {
                NSLog(@"%@", [error localizedDescription]);
                
-               UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Network Error"
-                                                                                          message:@"Try Again"
-                                                                                   preferredStyle:(UIAlertControllerStyleAlert)];
+               UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Network Error" message:@"Try Again" preferredStyle:(UIAlertControllerStyleAlert)];
                
                // create a cancel action
-               UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
-                                                                   style:UIAlertActionStyleCancel
-                                                                 handler:^(UIAlertAction * _Nonnull action) {
-                                                                        // handle cancel response here. Doing nothing will dismiss the view.
+               UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+               // handle cancel response here. Doing nothing will dismiss the view.
                                                                  }];
+               
                // add the cancel action to the alertController
                [alert addAction:cancelAction];
 
                // create an OK action
-               UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK"
-                                                                  style:UIAlertActionStyleDefault
-                                                                handler:^(UIAlertAction * _Nonnull action) {
-                                                                        // handle response here.
+               UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+               // handle response here.
                                                                 }];
+               
                // add the OK action to the alert controller
                [alert addAction:okAction];
                

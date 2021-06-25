@@ -14,8 +14,11 @@
 
 @property (nonatomic, strong) NSArray *movies; //value for movies in api
 
+@property (nonatomic,strong) UIRefreshControl *refreshControl; //refresh
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -28,8 +31,14 @@
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
+    [self.activityIndicator startAnimating]; // load symbol animate
     
     [self fetchMovies];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init]; //init
+    self.refreshControl.tintColor = UIColor.whiteColor;
+    [self.refreshControl addTarget:self action:@selector(fetchMovies) forControlEvents:UIControlEventValueChanged]; //action
+    [self.collectionView insertSubview:self.refreshControl atIndex:0];
     
     
     //for the collection make it nice in the app
@@ -61,12 +70,12 @@
 //               NSLog(@"%@", dataDictionary);
                
                self.movies = dataDictionary[@"results"]; //recolect results
+               
                [self.collectionView reloadData];
                
-               
+               [self.refreshControl endRefreshing]; //strop refresh symbol
+               [self.activityIndicator stopAnimating]; //load symbol stop
            }
- 
-        
        }];
     [task resume];
 }
@@ -106,7 +115,7 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    UITableViewCell *tappedCell = sender;
+    UICollectionViewCell *tappedCell = sender;
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:(tappedCell)];
     
     NSDictionary *movie = self.movies[indexPath.row];
