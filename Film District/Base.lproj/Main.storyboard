@@ -236,6 +236,7 @@
                                         <size key="customSize" width="190" height="364"/>
                                         <connections>
                                             <outlet property="posterView" destination="UXK-s2-bWO" id="s8a-w2-tKX"/>
+                                            <segue destination="Ecn-Ui-YEX" kind="show" id="esT-ZU-Gds"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -247,7 +248,7 @@
                     <navigationItem key="navigationItem" title="Film District" id="CEt-19-6Fe"/>
                     <connections>
                         <outlet property="collectionView" destination="XsU-Rl-hnK" id="mkE-Q1-zOZ"/>
-                        <segue destination="Ecn-Ui-YEX" kind="show" id="u79-xp-AGu"/>
+                        <segue destination="Ecn-Ui-YEX" kind="show" identifier="" id="u79-xp-AGu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RKV-6d-a2h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -318,6 +319,9 @@
             <point key="canvasLocation" x="2482" y="1695"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="esT-ZU-Gds"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="now_playing_tabbar_item" width="21" height="21"/>
         <image name="ticket_tabbar_icon" width="25" height="25"/>
