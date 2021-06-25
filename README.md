@@ -27,7 +27,7 @@ The following **optional** features are implemented:
 - [ ] Customize the navigation bar.
 - [ ] Customize the UI.
 - [ ] User can view the app on various device sizes and orientations.
-- [ x] Run your app on a real device.
+- [x] Run your app on a real device.
 
 The following **additional** features are implemented:
 
