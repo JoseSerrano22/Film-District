@@ -2,7 +2,7 @@
 
 **Film-District** is a movies app using the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
-Time spent: **18** hours spent in total
+Time spent: **20** hours spent in total
 
 ## User Stories
 
@@ -45,17 +45,22 @@ Here's a walkthrough of implemented user stories:
 
 <img src='walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-GIF created with [Kap](https://getkap.co/).
-
 ## Notes
 
 Describe any challenges encountered while building the app.
+
+- Problem for the search to titles
+- constraint to work perfectly with any devices becuase some iphones overlap the tab bar for some table cells
+
 
 ## Credits
 
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
+- [AppIcon] (https://appicon.co/#app-icon)- for the logo app to work ok xcode
+- [Canva] (https://www.canva.com/q/pro/?v=2) - creating the logo
+- [The Movie Database API] (https://developers.themoviedb.org/3/getting-started/introduction) - API for movie catalogs
 
 ## License
 
