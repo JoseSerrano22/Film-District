@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
     
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
@@ -76,14 +76,11 @@
                
                // create an OK action
                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                   // handle response here.
                }];
                
-               // add the OK action to the alert controller
                [alert addAction:okAction];
                
                [self presentViewController:alert animated:YES completion:^{
-                   // optional code for what happens after the alert controller has finished presenting
                }];
                
            }
@@ -118,8 +115,7 @@
     
     [cell.posterView setImageWithURLRequest:requestSmall placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *smallImage) {
         
-        // smallImageResponse will be nil if the smallImage is already available
-        // in cache (might want to do something smarter in that case).
+
         cell.posterView.alpha = 0.0;
         cell.posterView.image = smallImage;
                 
@@ -128,21 +124,17 @@
             cell.posterView.alpha = 1.0;
                         
         } completion:^(BOOL finished) {
-            // The AFNetworking ImageView Category only allows one request to be sent at a time
-            // per ImageView. This code must be in the completion block.
+
             [cell.posterView setImageWithURLRequest:requestLarge placeholderImage:smallImage success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage * largeImage) {
                                 
                 cell.posterView.image = largeImage;
             }
                                             failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                // do something for the failure condition of the large image request
-                // possibly setting the ImageView's image to a default image
+
             }];
         }];
     }
                                     failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-        // do something for the failure condition
-        // possibly try to get the large image
     }];
     
     return cell;
@@ -159,10 +151,8 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
     
     UICollectionViewCell *tappedCell = sender;
     NSIndexPath *indexPath = [self.collectionView indexPathForCell:(tappedCell)];

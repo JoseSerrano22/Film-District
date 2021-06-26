@@ -29,7 +29,6 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    // Do any additional setup after loading the view.
     
     [self.activityIndicator startAnimating]; // load symbol animate
     
@@ -72,7 +71,7 @@
             [alert addAction:okAction];
             
             [self presentViewController:alert animated:YES completion:^{
-                // optional code for what happens after the alert controller has finished presenting
+           
             }];
             
         }
@@ -83,9 +82,7 @@
             self.movies = dataDictionary[@"results"]; //recolect results
             
             [self.tableView reloadData]; // call data again to refresh
-            // TODO: Get the array of movies
-            // TODO: Store the movies in a property to use elsewhere
-            // TODO: Reload your table view data
+ 
         }
         [self.refreshControl endRefreshing]; //strop refresh symbol
         [self.activityIndicator stopAnimating]; //load symbol stop
@@ -118,7 +115,6 @@
     [cell.posterView setImageWithURLRequest:requestSmall placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *smallImage) {
         
         // smallImageResponse will be nil if the smallImage is already available
-        // in cache (might want to do something smarter in that case).
         cell.posterView.alpha = 0.0;
         cell.posterView.image = smallImage;
                 
@@ -127,21 +123,17 @@
             cell.posterView.alpha = 1.0;
                         
         } completion:^(BOOL finished) {
-            // The AFNetworking ImageView Category only allows one request to be sent at a time
-            // per ImageView. This code must be in the completion block.
+
             [cell.posterView setImageWithURLRequest:requestLarge placeholderImage:smallImage success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage * largeImage) {
                                 
                 cell.posterView.image = largeImage;
             }
                                             failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-                // do something for the failure condition of the large image request
-                // possibly setting the ImageView's image to a default image
+
             }];
         }];
     }
                                     failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
-        // do something for the failure condition
-        // possibly try to get the large image
     }];
     
     
@@ -158,10 +150,8 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     
     UITableViewCell *tappedCell = sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:(tappedCell)];
