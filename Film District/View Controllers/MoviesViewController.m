@@ -152,6 +152,12 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+    //Change the selected background view of the cell.
+     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+ }
+
 
 #pragma mark - Navigation
 
