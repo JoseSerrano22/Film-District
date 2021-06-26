@@ -10,7 +10,7 @@
 #import "DetailViewController.h"
 
 
-@interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
+@interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *movies; //value for movies in api
 @property (nonatomic,strong)  UIRefreshControl *refreshControl; //refresh
@@ -18,8 +18,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -30,7 +28,6 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    self.searchBar.delegate = self;
     
     // Do any additional setup after loading the view.
     
