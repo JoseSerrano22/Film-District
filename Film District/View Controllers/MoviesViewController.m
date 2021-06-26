@@ -94,13 +94,15 @@
 }
 
 
+#pragma mark - Table View Functions
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.movies.count; //check how many rows
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    MovieCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MovieCell"]; //call the view cell for the labels and images
+    MovieCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MovieCell"]; //Returns a reusable table-view cell object located by its identifier.
     
     NSDictionary *movie = self.movies[indexPath.row];
     cell.titleLabel.text = movie[@"title"];
