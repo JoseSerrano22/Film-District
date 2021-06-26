@@ -89,8 +89,6 @@
            }
            else {
                NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-
-//               NSLog(@"%@", dataDictionary);
                
                self.movies = dataDictionary[@"results"]; //recolect results
                

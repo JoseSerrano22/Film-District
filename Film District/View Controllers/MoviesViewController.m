@@ -79,13 +79,8 @@
         else {
             NSDictionary *dataDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
             
-            //               NSLog(@"%@", dataDictionary);
             
             self.movies = dataDictionary[@"results"]; //recolect results
-            
-            //               for (NSDictionary *movie in self.movies){
-            //                   NSLog(@"%@", movie[@"title"]);
-            //               }
             
             [self.tableView reloadData]; // call data again to refresh
             // TODO: Get the array of movies
