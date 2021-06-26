@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *posterView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *synopsisLabel;
+@property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
+
 
 @end
 
@@ -35,21 +37,16 @@
     [self.backdropView setImageWithURL:posterURL];
     
     
-//    NSString *backdropURLString = self.movie[@"backdrop_path"];
-//    NSString *fullBackdropURLString = [baseURLString stringByAppendingString: backdropURLString];
-//
-//    NSURL *backdropURL = [NSURL URLWithString:fullBackdropURLString];
-//    [self.posterView setImageWithURL:backdropURL];
-    
-    
-    
     self.titleLabel.text = self.movie[@"title"];
     self.synopsisLabel.text = self.movie[@"overview"];
-    
-//    [self.titleLabel sizeToFit];
     [self.synopsisLabel sizeToFit];
     
     
+    NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
+    [fmt setPositiveFormat:@"0.#"];
+    NSNumber *ratingNum = self.movie[@"vote_average"];
+    NSString *ratingString = [fmt stringFromNumber: ratingNum];
+    self.ratingLabel.text = ratingString;
 }
 
 

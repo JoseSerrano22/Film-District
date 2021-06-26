@@ -21,9 +21,14 @@
                                 <rect key="frame" x="0.0" y="33" width="390" height="811"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="iad-Y0-fpB">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieCell" rowHeight="221" id="Xaw-M6-x4B" customClass="MovieCell">
-                                        <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="221"/>
+                                        <rect key="frame" x="0.0" y="68.333333969116211" width="390" height="221"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xaw-M6-x4B" id="ihl-TP-rzD">
                                             <rect key="frame" x="0.0" y="0.0" width="390" height="221"/>
@@ -71,6 +76,7 @@
                     <navigationItem key="navigationItem" title="Film District" id="rrp-9b-4LQ"/>
                     <connections>
                         <outlet property="activityIndicator" destination="UOf-a0-gop" id="DRy-4Y-gcU"/>
+                        <outlet property="searchBar" destination="iad-Y0-fpB" id="YJd-7j-RG7"/>
                         <outlet property="tableView" destination="PwS-hP-U9V" id="1OY-H2-X4r"/>
                     </connections>
                 </viewController>
@@ -361,6 +367,7 @@
                     <connections>
                         <outlet property="backdropView" destination="xY4-jg-RX3" id="C8m-Os-FBI"/>
                         <outlet property="posterView" destination="yjq-9a-2kL" id="hpi-kr-6NQ"/>
+                        <outlet property="ratingLabel" destination="qPe-lg-9gc" id="IC1-Ne-xpt"/>
                         <outlet property="synopsisLabel" destination="Ydd-Fy-blg" id="mgQ-4Y-VdL"/>
                         <outlet property="titleLabel" destination="I5P-oP-jyz" id="lUg-YV-aSx"/>
                     </connections>

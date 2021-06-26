@@ -1,7 +1,6 @@
 //
 //  MoviesViewController.m
-//  Film District
-//
+//  Film Districtlvfhkiuhdeicgkkeujggbrjvcguvbljficlburlglgdntcgikdnfelulbbdjkjnukkrlvfncudvjuunldluikbtjhnknjtfv//
 //  Created by jose1009 on 6/23/21.
 //
 
@@ -11,15 +10,16 @@
 #import "DetailViewController.h"
 
 
-@interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface MoviesViewController () <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) NSArray *movies; //value for movies in api
-@property (nonatomic,strong) UIRefreshControl *refreshControl; //refresh
+@property (nonatomic,strong)  UIRefreshControl *refreshControl; //refresh
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -30,6 +30,7 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.searchBar.delegate = self;
     
     // Do any additional setup after loading the view.
     
@@ -107,7 +108,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell"]; //call the view cell for the labels and images
+    MovieCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MovieCell"]; //call the view cell for the labels and images
     
     NSDictionary *movie = self.movies[indexPath.row];
     cell.titleLabel.text = movie[@"title"];
@@ -124,7 +125,6 @@
     
     return cell;
 }
-
 
 
 #pragma mark - Navigation
